@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#f6f1ec"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="My Closet"/>
+<link rel="manifest" href="/manifest.webmanifest"/>
+<link rel="apple-touch-icon" href="/icon-192.png"/>
+<title>My Closet Stylist</title>
+<link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <p class="eyebrow">TU CLÓSET · MÁS LOOKS · MENOS REPETICIÓN</p>
+    <h1>My Closet <em>Stylist</em></h1>
+    <p class="sub">Tu ropa, combinada con intención.</p>
+    <p class="install">En iPhone: Safari → Compartir → <b>Agregar a pantalla de inicio</b>.</p>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <span class="pill">STYLIST PERSONAL</span>
+    <h2>¿Qué me pongo <i>hoy?</i></h2>
+    <p>Sube tus prendas. La app las analiza, guarda tu clóset en tu iPhone y crea combinaciones evitando repetir exactamente los mismos outfits.</p>
+  </div>
+  <div class="hero-card"><div class="big-number" id="itemCount">0</div><div>prendas</div><div class="mini" id="outfitCount">0 looks guardados</div></div>
+</section>
+
+<nav class="tabs">
+<button class="tab active" data-tab="closet">Mi clóset</button>
+<button class="tab" data-tab="stylist">Crear look</button>
+<button class="tab" data-tab="history">Historial</button>
+</nav>
+
+<section id="closet" class="panel active">
+<div class="section-head"><div><p class="eyebrow">PASO 1</p><h3>Agrega tus prendas</h3></div></div>
+<form id="uploadForm" class="card">
+<label class="dropzone">
+<input type="file" id="image" name="image" accept="image/*" capture="environment" required/>
+<span class="plus">＋</span><strong>Tomar o subir foto</strong><small>Mejor una prenda por foto.</small>
+</label>
+<div class="form-grid">
+<label>Categoría opcional<select name="category"><option value="">Que la IA decida</option><option value="top">Parte de arriba</option><option value="bottom">Parte de abajo</option><option value="dress">Vestido / conjunto</option><option value="outerwear">Blazer / chamarra / cardigan</option><option value="shoes">Zapatos</option><option value="bag">Bolsa</option><option value="accessory">Accesorio</option></select></label>
+<label>Notas<input name="notes" placeholder="Ej. oversize, solo para cenas..."/></label>
+</div>
+<button class="primary">Analizar y guardar</button><p id="uploadStatus" class="status"></p>
+</form>
+<div id="closetGrid" class="closet-grid"></div><div id="emptyCloset" class="empty">Todavía no hay prendas.</div>
+</section>
+
+<section id="stylist" class="panel">
+<div class="section-head"><div><p class="eyebrow">PASO 2</p><h3>Crea tu look</h3></div></div>
+<form id="lookForm" class="card">
+<div class="form-grid two">
+<label>Ocasión<select name="occasion"><option>Universidad</option><option>Comida</option><option>Cena</option><option>Fiesta</option><option>Evento formal</option><option>Viaje</option><option>Salida casual</option><option>Concierto</option><option>Trabajo</option></select></label>
+<label>Clima<input name="weather" placeholder="Ej. calor, humedad, lluvia"/></label>
+<label>Temporada<input name="season" placeholder="Ej. otoño"/></label>
+<label>Vibra<input name="vibe" placeholder="Ej. chic, femenina, trendy"/></label>
+</div>
+<label>Algo más<textarea name="extra" rows="3" placeholder="Ej. quiero usar botas negras / no quiero tacones"></textarea></label>
+<button class="primary">¿Qué me pongo?</button><p id="lookStatus" class="status"></p>
+</form>
+<div id="lookResults" class="look-results"></div>
+</section>
+
+<section id="history" class="panel">
+<div class="section-head"><div><p class="eyebrow">MEMORIA DE OUTFITS</p><h3>Historial</h3></div><button id="resetHistory" class="ghost danger">Borrar historial</button></div>
+<div id="historyList"></div>
+</section>
+</main>
+<footer>My Closet Stylist · Tu guardarropa, mejor combinado.</footer>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
