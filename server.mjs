@@ -18,7 +18,7 @@ const upload = multer({
 });
 
 app.use(express.json({ limit: "8mb" }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
 
 function client() {
   if (!process.env.OPENAI_API_KEY) throw new Error("Falta OPENAI_API_KEY.");
